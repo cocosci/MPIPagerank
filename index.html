@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>MPI-Pagerank by cocosci</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>MPI-Pagerank</h1>
+        <h2></h2>
+
+        <section id="downloads">
+          <a href="https://github.com/cocosci/MPIPagerank/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/cocosci/MPIPagerank/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/cocosci/MPIPagerank" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="mpj-pagerank" class="anchor" href="#mpj-pagerank" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MPJ-PageRank</h1>
+
+<p>We implement PageRank algorithm in parallel with MPJ-Express library as a project in distributed system course(CSCI-B534) offered by Prof. Judy Qiu. PageRank calculates a numerical value for each element of a hyperlinked set of webpages, which reflects the probability that a random surfer will access that page. The process of PageRank can be modeled as a Markov Chain which requires iterative calculations to converge. An iteration of PageRank calculates the new access probability for each webpage based on values calculated in the previous iteration. The process will repeat until the number of current iterations is bigger than predefined maximum iterations, or the Euclidian distance between rank values in two subsequent iterations is less than a predefined threshold that controls the accuracy of the output results. In MPJ-PageRank, we extend previous work on sequential PageRank algorithm to the parallel version via input partition and message passing functionalities.</p>
+
+<pre><code>Authors: Kai Zhen, Mridul Birla
+zhenk@umail.iu.edu, mbirla@umail.iu.edu
+School of informatics and computing, Indiana University
+</code></pre>
+
+<h1>
+<a id="how-to-compile-and-run" class="anchor" href="#how-to-compile-and-run" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to compile and run</h1>
+
+<p>javac -cp .:$MPJ_HOME/lib/mpj.jar MPIPageRank.java </p>
+
+<p>mpjrun.sh -np 4 MPIPageRank input.txt out.txt 1000 0.85</p>
+
+<h1>
+<a id="result" class="anchor" href="#result" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Result</h1>
+
+<pre><code>[zhenk@silo src]$ mpjrun.sh -np 4 MPIPageRank input.txt out.txt 1000 0.85 
+Picked up _JAVA_OPTIONS: -Xms512m -Xmx512m
+MPJ Express (0.44) is started in the multicore configuration
+Picked up _JAVA_OPTIONS: -Xms512m -Xmx512m
+For Process Rank 0:
+Running time for loading for :13ms
+Running time for calculation:1524ms
+For Process Rank 2:
+Running time for loading for :119ms
+Running time for calculation:1418ms
+For Process Rank 3:
+Running time for loading for :118ms
+Running time for calculation:1418ms
+For Process Rank 1:
+Running time for loading for :116ms
+Running time for calculation:1417ms
+1 :-  0.38440094881355413
+2 :-  0.34291028550837954
+4 :-  0.08088569323449774
+3 :-  0.039087092099966095
+5 :-  0.039087092099966095
+0 :-  0.03278149315934399
+6 :-  0.016169479016858404
+7 :-  0.016169479016858404
+8 :-  0.016169479016858404
+9 :-  0.016169479016858404
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
