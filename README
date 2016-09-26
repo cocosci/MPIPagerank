@@ -17,7 +17,7 @@ For Process Rank 0:
 Running time for loading for :13ms
 Running time for calculation:1524ms
 For Process Rank 2:
-Running time for loading for :119msz`
+Running time for loading for :119ms
 Running time for calculation:1418ms
 For Process Rank 3:
 Running time for loading for :118ms
